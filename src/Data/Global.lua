@@ -323,3 +323,5 @@ GlobalCache = {
 	numActiveSkillInFullDPS = 0,
 }
 
+popupScrollBarFunctionLabel = "POPUP_SCROLLBAR_FUNCTION"
+

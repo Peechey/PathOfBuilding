@@ -479,12 +479,12 @@ Highest Weight - Displays the order retrieved from trade]]
 	self.controls.pbNotice = new("LabelControl",  {"BOTTOMRIGHT", nil, "BOTTOMRIGHT"}, -row_height - pane_margins_vertical - row_vertical_padding, -pane_margins_vertical, 300, row_height, "")
 
 	-- used in PopupDialog:Draw()
-	local function scrollBarFunc()
+	self.controls[popupScrollBarFunctionLabel] = new("ButtonControl", nil, 0, 0, 0, 0, "nil", function()
 		self.controls.scrollBar.height = self.pane_height-100
 		self.controls.scrollBar:SetContentDimension(self.pane_height-100, self.effective_rows_height)
 		self.controls.sectionAnchor.y = -self.controls.scrollBar.offset
-	end
-	main:OpenPopup(pane_width, self.pane_height, "Trader", self.controls, nil, nil, "close", scrollBarFunc)
+	end)
+	main:OpenPopup(pane_width, self.pane_height, "Trader", self.controls, nil, nil, "close")
 end
 
 -- Popup to set stat weight multipliers for sorting

@@ -5,7 +5,7 @@
 --
 local m_floor = math.floor
 
-local PopupDialogClass = newClass("PopupDialog", "ControlHost", "Control", function(self, width, height, title, controls, enterControl, defaultControl, escapeControl, scrollBarFunc)
+local PopupDialogClass = newClass("PopupDialog", "ControlHost", "Control", function(self, width, height, title, controls, enterControl, defaultControl, escapeControl)
 	self.ControlHost()
 	self.Control(nil, 0, 0, width, height)
 	self.x = function()
@@ -30,8 +30,6 @@ local PopupDialogClass = newClass("PopupDialog", "ControlHost", "Control", funct
 	if defaultControl then
 		self:SelectControl(self.controls[defaultControl])
 	end
-	-- allow scrollbar functionality inside of popups
-	self.scrollBarFunc = scrollBarFunc
 end)
 
 function PopupDialogClass:Draw(viewPort)
@@ -52,8 +50,8 @@ function PopupDialogClass:Draw(viewPort)
 	DrawImage(nil, titleX + 2, y - 8, titleWidth + 4, 20)
 	SetDrawColor(1, 1, 1)
 	DrawString(titleX + 4, y - 7, "LEFT", 16, "VAR", title)
-	if self.scrollBarFunc then
-		self.scrollBarFunc()
+	if self.controls[popupScrollBarFunctionLabel] then
+		self.controls[popupScrollBarFunctionLabel]:Click()
 	end
 	-- Draw controls
 	self:DrawControls(viewPort)
