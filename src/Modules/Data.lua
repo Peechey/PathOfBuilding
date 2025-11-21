@@ -117,6 +117,7 @@ data.powerStatList = {
 	{ stat="WithImpaleDPS", label="Impale + Hit DPS" },
 	{ stat="AverageDamage", label="Average Hit" },
 	{ stat="Speed", label="Attack/Cast Speed" },
+	{ stat="AreaOfEffectRadius", label="Area of Effect" },
 	{ stat="TotalDot", label="DoT DPS" },
 	{ stat="BleedDPS", label="Bleed DPS" },
 	{ stat="IgniteDPS", label="Ignite DPS" },
