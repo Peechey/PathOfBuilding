@@ -73,6 +73,12 @@ directiveTable.socketLimit = function(state, args, out)
 	state.socketLimit = tonumber(args)
 end
 
+-- used for DW Mastery to allow Rune Daggers and Daggers not to match but keep Thrusting Swords and Swords matching
+-- a base item with this true means it will not match for the increased damage DW Mastery even if both weaponTypes match
+directiveTable.doesNotTypeMatch = function(state, args, out)
+	state.doesNotTypeMatch = (args == "true")
+end
+
 directiveTable.base = function(state, args, out)
 	local baseTypeId, displayName = args:match("([%w/_]+) (.+)")
 	if not baseTypeId then
@@ -125,6 +131,9 @@ directiveTable.base = function(state, args, out)
 	end
 	if state.socketLimit then
 		out:write('\tsocketLimit = ', state.socketLimit, ',\n')
+	end
+	if state.doesNotTypeMatch then
+		out:write('\tdoesNotTypeMatch = true', ',\n')
 	end
 	out:write('\ttags = { ')
 	local combinedTags = { }

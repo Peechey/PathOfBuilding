@@ -10,4 +10,5 @@ local itemBases = ...
 #subType Rune Dagger
 #influenceBaseTag rune_dagger
 #socketLimit 3
+#doesNotTypeMatch true
 #baseMatch BaseType Metadata/Items/Weapons/OneHandWeapons/Daggers/AbstractRuneDagger
